@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  perspective: 700px;
+  background-color: #ccc;
+}
+:root {
+  --primary: rgb(150, 81, 16);
+  --secondry: rgb(16, 11, 77);
+}
+.container {
+  width: 80%;
+  margin: 10px auto;
+}
+header {
+  margin: 20px 0;
+}
+h1 {
+  text-align: center;
+  color: var(--secondry);
+}
+.line {
+  margin: auto;
+  width: 120px;
+  height: 4px;
+  background-color: var(--secondry);
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px 0;
+}
+.card {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 20%;
+  height: 300px;
+  transition: 2s;
+  margin: 0 2.5%;
+}
+@media screen and (max-width: 750px) {
+  .card {
+    width: 45%;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1100px) {
+  .card {
+    width: 25%;
+  }
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border-radius: 20px;
+  padding: 7px;
+  /* box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.557); */
+}
+.front {
+  backface-visibility: hidden;
+}
+.front .image {
+  width: 100%;
+  /* height: 150px; */
+  height: 100%;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.557);
+}
+.front .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  text-align: center;
+  color: white;
+  background-color: var(--secondry);
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.557);
+  padding: 15px 10px;
+}
+.card:hover {
+  transform: rotateY(180deg);
+}
+.back h2 {
+  position: relative;
+}
+.back h2::after {
+  content: "";
+  width: 20%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  bottom: -5px;
+  left: 40%;
+}
+.back .price,
+.btns {
+  overflow: auto;
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+.back .price .old {
+  float: right;
+  text-decoration: line-through;
+}
+.back .price .new {
+  float: left;
+}
+.btns button {
+  float: left;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btns a {
+  float: right;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 10px;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  font-size: 1.3rem;
+  line-height: 30px;
+}
+.btns a:hover {
+  color: white;
+  background-color: var(--primary);
+}
+.btns button:hover {
+  color: var(--primary);
+  background-color: white;
+  border: 1px solid var(--primary);
+}
+.back .discription {
+  margin: 10px 0;
+}
+.back p {
+  font-size: 1.2rem;
+}
+.rate i {
+  cursor: pointer;
+  color: #ffd700;
+}
+.rate i:hover {
+  color: #daa520;
+}
